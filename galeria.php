@@ -1,28 +1,32 @@
+<?php
+require_once 'visitors.php';
+logVisit();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRC Maestro - Galeria Montaży | Profesjonalne instalacje LPG</title>
+    <title>BRC Maestro - Galeria Montaży | Profesjonalne instalacje LPG i serwis autogaz</title>
     
     <!-- Meta tagi SEO -->
-    <meta name="description" content="Zobacz galerię profesjonalnych montaży instalacji LPG BRC Maestro. Realizacje dla różnych modeli samochodów, w tym hybryd i pojazdów z bezpośrednim wtryskiem benzyny.">
-    <meta name="keywords" content="BRC Maestro, galeria montaży LPG, instalacje gazowe, montaż LPG, samochody na gaz, hybrydy na gaz">
+    <meta name="description" content="BRC Maestro - galeria naszych realizacji montażowych LPG. Zobacz przykłady profesjonalnych instalacji gazowych w samochodach. Warszawa, Kraków, Rzeszów, Lublin, Świdnica, Mysłowice.">
+    <meta name="keywords" content="BRC Maestro, galeria, instalacje LPG, montaż LPG, systemy gazowe, oszczędzanie paliwa, instalacje gazowe, samochody na gaz, autogaz, brc gaz, brc instalacje, brc instalacja, brc lpg, brc serwis, lubin lpg, brc warszawa, serwis brc, brc rzeszów, brc kraków, brc mysłowice, auto gaz świdnica, instalacje brc opinie, brc czakram, instalacja lpg brc, eliasz gaz, brc lublin">
     <meta name="author" content="BRC Maestro">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brc-maestro.pl/galeria.php">
-    <meta property="og:title" content="BRC Maestro - Galeria Montaży LPG">
-    <meta property="og:description" content="Zobacz galerię profesjonalnych montaży instalacji LPG BRC Maestro. Realizacje dla różnych modeli samochodów.">
+    <meta property="og:title" content="BRC Maestro - Galeria Montaży | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="og:description" content="Zobacz nasze realizacje montażowe LPG. Profesjonalne instalacje gazowe w samochodach - BRC Maestro.">
     <meta property="og:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://brc-maestro.pl/galeria.php">
-    <meta property="twitter:title" content="BRC Maestro - Galeria Montaży LPG">
-    <meta property="twitter:description" content="Zobacz galerię profesjonalnych montaży instalacji LPG BRC Maestro. Realizacje dla różnych modeli samochodów.">
+    <meta property="twitter:title" content="BRC Maestro - Galeria Montaży | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="twitter:description" content="Zobacz nasze realizacje montażowe LPG. Profesjonalne instalacje gazowe w samochodach - BRC Maestro.">
     <meta property="twitter:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Favicon -->
@@ -32,6 +36,41 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v18.0" nonce="YOUR_NONCE_VALUE"></script>
+    <style>
+        .footer-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer-column:nth-child(4) {
+            flex: 2;
+            min-width: 500px;
+        }
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .social-icons img {
+            width: 32px;
+            height: 32px;
+        }
+        .facebook-post {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -223,6 +262,7 @@
         </section>
     </main>
 
+    <!-- Stopka -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -234,21 +274,39 @@
                 </div>
                 <div class="footer-column">
                     <h4>Kontakt</h4>
-                    <p>Email: maestro@czakram.pl<br>
+                    <p>Email: <a href="mailto:maestro@czakram.pl" class="footer-link">maestro@czakram.pl</a><br>
                     Tel: +48 14 646 00 90</p>
                 </div>
                 <div class="footer-column">
                     <h4>Śledź nas</h4>
                     <div class="social-icons">
-                    <a href="https://www.facebook.com/BRCPolska/"><img src="images/facebook.png" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/brcpolska/"><img src="images/instagram.png" alt="instagram"></a>
-                    <a href="https://www.youtube.com/@CzakramBoschCarService"><img src="images/youtube.png" alt="YouTube"></a>
+                        <a href="https://www.facebook.com/BRCPolska/"><img src="images/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/brcpolska/"><img src="images/instagram.png" alt="instagram"></a>
+                        <a href="https://www.youtube.com/@CzakramBoschCarService"><img src="images/youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Facebook</h4>
+                    <div class="facebook-post">
+                        <div class="fb-page" 
+                             data-href="https://www.facebook.com/BRCPolska" 
+                             data-tabs="timeline" 
+                             data-width="500" 
+                             data-height="400" 
+                             data-small-header="false" 
+                             data-adapt-container-width="true" 
+                             data-hide-cover="false" 
+                             data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/BRCPolska" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/BRCPolska">BRC Polska</a>
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 BRC Maestro. Wszelkie prawa zastrzeżone.</p>
-            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 BRC Maestro. Wszelkie prawa zastrzeżone.</p>
         </div>
     </footer>
 

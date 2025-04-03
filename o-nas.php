@@ -1,28 +1,32 @@
+<?php
+require_once 'visitors.php';
+logVisit();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRC Maestro - O nas | Referencje i opinie</title>
+    <title>BRC Maestro - O Nas | Profesjonalne instalacje LPG i serwis autogaz</title>
     
     <!-- Meta tagi SEO -->
-    <meta name="description" content="Poznaj opinie i referencje klientów BRC Maestro. Zobacz, co mówią o nas media i nasi zadowoleni klienci.">
-    <meta name="keywords" content="BRC Maestro, opinie, referencje, media, prasa, instalacje LPG, montaż LPG">
+    <meta name="description" content="BRC Maestro - dowiedz się więcej o naszej firmie. Profesjonalne instalacje LPG i serwis autogaz w całej Polsce. Warszawa, Kraków, Rzeszów, Lublin, Świdnica, Mysłowice.">
+    <meta name="keywords" content="BRC Maestro, o nas, instalacje LPG, montaż LPG, systemy gazowe, oszczędzanie paliwa, instalacje gazowe, samochody na gaz, autogaz, brc gaz, brc instalacje, brc instalacja, brc lpg, brc serwis, lubin lpg, brc warszawa, serwis brc, brc rzeszów, brc kraków, brc mysłowice, auto gaz świdnica, instalacje brc opinie, brc czakram, instalacja lpg brc, eliasz gaz, brc lublin">
     <meta name="author" content="BRC Maestro">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brc-maestro.pl/o-nas.php">
-    <meta property="og:title" content="BRC Maestro - O nas">
-    <meta property="og:description" content="Poznaj opinie i referencje klientów BRC Maestro. Zobacz, co mówią o nas media i nasi zadowoleni klienci.">
+    <meta property="og:title" content="BRC Maestro - O Nas | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="og:description" content="Poznaj BRC Maestro - lidera w instalacjach LPG i serwisie autogaz. Profesjonalne usługi w całej Polsce.">
     <meta property="og:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://brc-maestro.pl/o-nas.php">
-    <meta property="twitter:title" content="BRC Maestro - O nas">
-    <meta property="twitter:description" content="Poznaj opinie i referencje klientów BRC Maestro. Zobacz, co mówią o nas media i nasi zadowoleni klienci.">
+    <meta property="twitter:title" content="BRC Maestro - O Nas | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="twitter:description" content="Poznaj BRC Maestro - lidera w instalacjach LPG i serwisie autogaz. Profesjonalne usługi w całej Polsce.">
     <meta property="twitter:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Favicon -->
@@ -164,7 +168,7 @@
 	
 	
 </body>
-
+<!-- Stopka -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -176,21 +180,21 @@
             </div>
             <div class="footer-column">
                 <h4>Kontakt</h4>
-                <p>Email: maestro@czakram.pl<br>
+                <p>Email: <a href="mailto:maestro@czakram.pl" class="footer-link">maestro@czakram.pl</a><br>
                 Tel: +48 14 646 00 90</p>
             </div>
             <div class="footer-column">
                 <h4>Śledź nas</h4>
                 <div class="social-icons">
-                <a href="https://www.facebook.com/BRCPolska/"><img src="images/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.facebook.com/BRCPolska/"><img src="images/facebook.png" alt="Facebook"></a>
                     <a href="https://www.instagram.com/brcpolska/"><img src="images/instagram.png" alt="instagram"></a>
                     <a href="https://www.youtube.com/@CzakramBoschCarService"><img src="images/youtube.png" alt="YouTube"></a>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 BRC Maestro. Wszelkie prawa zastrzeżone.</p>
-        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 BRC Maestro. Wszelkie prawa zastrzeżone.</p>
     </div>
 </footer>
 </html>

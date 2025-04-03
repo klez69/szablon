@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRC Maestro - Usługi | Profesjonalne instalacje LPG</title>
+    <title>BRC Maestro - Usługi | Profesjonalne instalacje LPG i serwis autogaz</title>
     
     <!-- Meta tagi SEO -->
-    <meta name="description" content="Oferujemy kompleksowe usługi montażu instalacji LPG. Profesjonalny montaż, serwis i doradztwo w zakresie instalacji gazowych.">
-    <meta name="keywords" content="BRC Maestro, usługi, montaż LPG, instalacje gazowe, serwis LPG, doradztwo LPG">
+    <meta name="description" content="BRC Maestro - profesjonalne usługi instalacji LPG i serwisu autogaz. Oferujemy montaż, serwis i doradztwo w całej Polsce. Warszawa, Kraków, Rzeszów, Lublin, Świdnica, Mysłowice.">
+    <meta name="keywords" content="BRC Maestro, usługi, instalacje LPG, montaż LPG, systemy gazowe, oszczędzanie paliwa, instalacje gazowe, samochody na gaz, autogaz, brc gaz, brc instalacje, brc instalacja, brc lpg, brc serwis, lubin lpg, brc warszawa, serwis brc, brc rzeszów, brc kraków, brc mysłowice, auto gaz świdnica, instalacje brc opinie, brc czakram, instalacja lpg brc, eliasz gaz, brc lublin">
     <meta name="author" content="BRC Maestro">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brc-maestro.pl/uslugi.php">
-    <meta property="og:title" content="BRC Maestro - Usługi">
-    <meta property="og:description" content="Oferujemy kompleksowe usługi montażu instalacji LPG. Profesjonalny montaż, serwis i doradztwo w zakresie instalacji gazowych.">
+    <meta property="og:title" content="BRC Maestro - Usługi | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="og:description" content="Profesjonalne usługi instalacji LPG i serwisu autogaz. Montaż, serwis i doradztwo w całej Polsce - BRC Maestro.">
     <meta property="og:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://brc-maestro.pl/uslugi.php">
-    <meta property="twitter:title" content="BRC Maestro - Usługi">
-    <meta property="twitter:description" content="Oferujemy kompleksowe usługi montażu instalacji LPG. Profesjonalny montaż, serwis i doradztwo w zakresie instalacji gazowych.">
+    <meta property="twitter:title" content="BRC Maestro - Usługi | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="twitter:description" content="Profesjonalne usługi instalacji LPG i serwisu autogaz. Montaż, serwis i doradztwo w całej Polsce - BRC Maestro.">
     <meta property="twitter:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Favicon -->

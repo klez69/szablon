@@ -1,6 +1,8 @@
 <?php
 // kontakt.php
 require_once 'dbt.php';
+require_once 'visitors.php';
+logVisit();
 
 // Sprawdzenie czy zmienne są zdefiniowane
 if (!isset($host) || !isset($username) || !isset($password) || !isset($dbname)) {
@@ -103,26 +105,26 @@ if (isset($_POST['newsletter_submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRC Maestro - Kontakt | Profesjonalne instalacje LPG</title>
+    <title>BRC Maestro - Kontakt | Profesjonalne instalacje LPG i serwis autogaz</title>
     
     <!-- Meta tagi SEO -->
-    <meta name="description" content="Skontaktuj się z BRC Maestro - profesjonalnym dostawcą instalacji LPG. Oferujemy doradztwo, montaż i serwis instalacji gazowych dla Twojego samochodu.">
-    <meta name="keywords" content="BRC Maestro, kontakt, instalacje LPG, montaż LPG, serwis LPG, doradztwo LPG">
+    <meta name="description" content="BRC Maestro - kontakt do naszych zakładów montażowych w całej Polsce. Warszawa, Kraków, Rzeszów, Lublin, Świdnica, Mysłowice. Profesjonalne instalacje LPG i serwis autogaz.">
+    <meta name="keywords" content="BRC Maestro, kontakt, instalacje LPG, montaż LPG, systemy gazowe, oszczędzanie paliwa, instalacje gazowe, samochody na gaz, autogaz, brc gaz, brc instalacje, brc instalacja, brc lpg, brc serwis, lubin lpg, brc warszawa, serwis brc, brc rzeszów, brc kraków, brc mysłowice, auto gaz świdnica, instalacje brc opinie, brc czakram, instalacja lpg brc, eliasz gaz, brc lublin">
     <meta name="author" content="BRC Maestro">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brc-maestro.pl/kontakt.php">
-    <meta property="og:title" content="BRC Maestro - Kontakt">
-    <meta property="og:description" content="Skontaktuj się z BRC Maestro - profesjonalnym dostawcą instalacji LPG. Oferujemy doradztwo, montaż i serwis instalacji gazowych.">
+    <meta property="og:title" content="BRC Maestro - Kontakt | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="og:description" content="Skontaktuj się z naszymi zakładami montażowymi w całej Polsce. Profesjonalne instalacje LPG i serwis autogaz - BRC Maestro.">
     <meta property="og:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://brc-maestro.pl/kontakt.php">
-    <meta property="twitter:title" content="BRC Maestro - Kontakt">
-    <meta property="twitter:description" content="Skontaktuj się z BRC Maestro - profesjonalnym dostawcą instalacji LPG. Oferujemy doradztwo, montaż i serwis instalacji gazowych.">
+    <meta property="twitter:title" content="BRC Maestro - Kontakt | Profesjonalne instalacje LPG i serwis autogaz">
+    <meta property="twitter:description" content="Skontaktuj się z naszymi zakładami montażowymi w całej Polsce. Profesjonalne instalacje LPG i serwis autogaz - BRC Maestro.">
     <meta property="twitter:image" content="https://brc-maestro.pl/images/mlogo.png">
 
     <!-- Favicon -->
@@ -133,6 +135,125 @@ if (isset($_POST['newsletter_submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    <style>
+        .map-section {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+        }
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .route-planner {
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .route-planner h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .route-form {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+        }
+        .route-form .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+        }
+        .route-form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        .route-form input[readonly] {
+            background-color: #f5f5f5;
+        }
+        .route-form button {
+            padding: 12px 24px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+        .route-form button:hover {
+            background-color: #cc0000;
+        }
+        .contact-form-container {
+            font-size: 14px;
+        }
+        .contact-form-container label {
+            font-size: 14px;
+        }
+        .contact-form-container input,
+        .contact-form-container textarea {
+            font-size: 14px;
+        }
+        .newsletter-section p {
+            font-size: 10px;
+            margin-bottom: 13px;
+        }
+        .newsletter-content p {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        let map;
+        let directionsService;
+        let directionsRenderer;
+
+        function initMap() {
+            const czakramLocation = { lat: 50.02756897941761, lng: 20.957448715717012 };
+            
+            map = new google.maps.Map(document.querySelector('.map-container'), {
+                center: czakramLocation,
+                zoom: 15
+            });
+
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer({
+                map: map,
+                suppressMarkers: false
+            });
+
+            // Dodaj marker dla lokalizacji CZAKRAM
+            new google.maps.Marker({
+                position: czakramLocation,
+                map: map,
+                title: 'CZAKRAM Sp. z o.o.'
+            });
+        }
+
+        function calculateRoute(event) {
+            event.preventDefault();
+            const start = document.getElementById('start').value;
+            const end = document.getElementById('end').value;
+            const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(start)}&destination=${encodeURIComponent(end)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -189,6 +310,7 @@ if (isset($_POST['newsletter_submit'])) {
                             <div>
                                 <h3>Telefon</h3>
                                 <p>+48 14 640 00 90</p>
+                                <p>+48 14 640 00 91</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -222,7 +344,7 @@ if (isset($_POST['newsletter_submit'])) {
                             </div>
                             <div class="form-group">
                                 <label for="message">Treść wiadomości *</label>
-                                <textarea id="message" name="message" rows="8" required placeholder="Wprowadź treść swojej wiadomości"></textarea>
+                                <textarea id="message" name="message" rows="2" required placeholder="Wprowadź treść swojej wiadomości"></textarea>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn">Wyślij wiadomość</button>
@@ -230,6 +352,36 @@ if (isset($_POST['newsletter_submit'])) {
                             <p class="form-note">* Pola oznaczone gwiazdką są wymagane</p>
                         </form>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.0495473312883!2d20.957448715717012!3d50.02756897941761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473d85bb3a8ed75f%3A0x5c1f2c9cf6ac188f!2sDojazd%201%2C%2033-100%20Tarn%C3%B3w!5e0!3m2!1spl!2spl!4v1650000000000!5m2!1spl!2spl" 
+                        width="100%" 
+                        height="500" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="route-planner">
+                    <h3>Zaplanuj trasę do nas</h3>
+                    <form id="routeForm" class="route-form" onsubmit="calculateRoute(event)">
+                        <div class="form-group">
+                            <label for="start">Twój adres startowy:</label>
+                            <input type="text" id="start" name="start" required placeholder="Wpisz swój adres">
+                        </div>
+                        <div class="form-group">
+                            <label for="end">Adres docelowy:</label>
+                            <input type="text" id="end" name="end" value="ul. Dojazd 1, 33-100 Tarnów" readonly>
+                        </div>
+                        <button type="submit" class="btn">Wyznacz trasę</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -278,7 +430,7 @@ if (isset($_POST['newsletter_submit'])) {
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 BRC Maestro. Wszelkie prawa zastrzeżone.</p>
+            <p>&copy; 2025 BRC Maestro. Wszelkie prawa zastrzeżone.</p>
         </div>
     </footer>
 </body>
