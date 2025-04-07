@@ -1,0 +1,11 @@
+[2025-04-02 14:32:51] Próba zapisu do newslettera: rojek@czakram.pl
+[2025-04-02 14:32:51] Próba połączenia z bazą danych: host=mysql.ibc.pl, dbname=newsletter1, username=admin5950_brcmaestro
+[2025-04-02 14:32:51] Błąd bazy danych newslettera: SQLSTATE[HY000] [1044] Access denied for user 'admin5950_brcmaestro'@'%' to database 'newsletter1'
+[2025-04-02 14:32:51] Szczegóły połączenia: host=mysql.ibc.pl, dbname=newsletter1, username=admin5950_brcmaestro
+[2025-04-02 14:32:51] Kod błędu: 1044
+[2025-04-02 14:32:51] Trace: #0 /home/users/czakram/public_html/maestro/szkielet/kontakt.php(63): PDO->__construct('mysql:host=mysq...', 'admin5950_brcma...', 'h5C)f0Z)e3')
+#1 {main}
+[2025-04-02 14:38:02] Próba zapisu do newslettera: rojek@czakram.pl
+[2025-04-02 14:38:02] Próba połączenia z bazą danych: host=mysql.ibc.pl, dbname=baza5950_brcmaestro, username=admin5950_brcmaestro
+[2025-04-02 14:38:02] Próba zapisu nowego emaila do bazy
+[2025-04-02 14:38:02] Email został pomyślnie zapisany
