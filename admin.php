@@ -398,6 +398,7 @@ foreach ($pageStats as $stat) {
             <ul>
                 <li><a href="#newsletter" class="active">Newsletter</a></li>
                 <li><a href="#statystyki">Statystyki odwiedzin</a></li>
+                <li><a href="https://brc-maestro.pl/szkielet/" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank'); return false;">Strona</a></li>
             </ul>
         </nav>
 

@@ -1979,3 +1979,14 @@ h2 {
 		order: 2;
 	}
 }
+
+/* Style dla linków otwierających się w nowym oknie */
+a[target='_blank'] {
+	text-decoration: none;
+	color: #333;
+	transition: color 0.3s ease;
+}
+
+a[target='_blank']:hover {
+	color: #e60000;
+}
