@@ -27,11 +27,10 @@ body {
 /* Header */
 header {
 	background: linear-gradient(135deg, #000000, #1a1a1a);
-	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-	position: fixed;
-	width: 100%;
-	z-index: 1000;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2); /* Zmniejszony cień */
+	position: sticky; /* Zamiast fixed */
 	top: 0;
+	z-index: 1000;
 	height: 60px;
 }
 
@@ -154,16 +153,16 @@ nav ul li a:hover {
 	display: inline-block;
 	background: linear-gradient(135deg, #e60000, #cc0000);
 	color: white;
-	padding: 15px 40px;
+	padding: 20px 50px; /* Większe przyciski */
 	border-radius: 25px;
 	text-decoration: none;
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 18px; /* Czytelniejszy tekst */
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	transition: all 0.3s;
 	box-shadow: 0 4px 15px rgba(230, 0, 0, 0.3);
-	margin-top: 20px;
+	margin-top: 30px;
 	border: 2px solid transparent;
 }
 
@@ -179,6 +178,13 @@ nav ul li a:hover {
 .hero-button:active {
 	transform: translateY(1px);
 	box-shadow: 0 2px 10px rgba(230, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+	.hero-button {
+		padding: 15px 40px; /* Dopasowanie do mniejszych ekranów */
+		font-size: 16px;
+	}
 }
 
 /* Przycisk w sekcji hero */
@@ -260,7 +266,7 @@ nav ul li a:hover {
 	padding: 30px;
 	text-align: center;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-	transition: all 0.3s;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	border-top: 4px solid #e60000;
 	position: relative;
 	overflow: hidden;
@@ -279,8 +285,8 @@ nav ul li a:hover {
 }
 
 .service-card:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	transform: translateY(-10px); /* Unoszenie karty */
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Większy cień */
 }
 
 .service-card:hover:before {
@@ -326,13 +332,14 @@ nav ul li a:hover {
 	background: white;
 	border-radius: 8px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	margin-bottom: 30px;
+	margin-bottom: 100px;
 	overflow: hidden;
 	transition: transform 0.3s;
 	width: 100%;
 	max-width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
 }
 
 .service-card-horizontal:hover {
@@ -360,6 +367,10 @@ nav ul li a:hover {
 	flex: 1;
 	padding: 30px;
 	text-align: left;
+	position: relative;
+	min-height: 200px;
+	display: flex;
+	flex-direction: column;
 }
 
 .card-content h3 {
@@ -375,6 +386,7 @@ nav ul li a:hover {
 	color: #666;
 	margin-bottom: 15px;
 	text-align: left;
+	flex-grow: 1;
 }
 
 .card-content .btn {
@@ -387,10 +399,28 @@ nav ul li a:hover {
 	font-weight: 500;
 	transition: background-color 0.3s;
 	margin-left: 0;
+	align-self: flex-start;
+	margin-bottom: 30px;
 }
 
 .card-content .btn:hover {
 	background-color: #cc0000;
+}
+
+.facebook-like {
+	position: absolute;
+	bottom: 30px;
+	right: 20px;
+	z-index: 1;
+	min-height: 20px;
+	min-width: 100px;
+}
+
+.facebook-like .fb-like {
+	display: inline-block;
+	vertical-align: middle;
+	min-height: 20px;
+	min-width: 100px;
 }
 
 @media (max-width: 768px) {
@@ -406,6 +436,7 @@ nav ul li a:hover {
 
 	.card-content {
 		padding: 20px;
+		min-height: auto;
 	}
 
 	.card-content h3 {
@@ -415,12 +446,22 @@ nav ul li a:hover {
 	.card-content p {
 		font-size: 13px;
 	}
+
+	.facebook-like {
+		position: static;
+		margin-top: 10px;
+		text-align: right;
+		min-height: 20px;
+		min-width: 100px;
+	}
 }
 
 /* Footer */
 footer {
 	background: linear-gradient(135deg, #000000, #1a1a1a);
-	color: white;
+	font-size: 14px; /* Większy tekst */
+	line-height: 1.8; /* Większe odstępy między wierszami */
+	color: #ccc; /* Jaśniejszy tekst */
 	padding: 60px 0 20px;
 }
 
@@ -464,6 +505,17 @@ footer {
 	transform: scale(1.2);
 }
 
+.footer-link {
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+	color: #e60000; /* Podkreślenie linków po najechaniu */
+	text-decoration: underline;
+}
+
 .copyright {
 	text-align: center;
 	padding-top: 20px;
@@ -488,8 +540,9 @@ footer {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #ddd;
-	border-radius: 4px;
-	transition: border-color 0.3s;
+	border-radius: 8px; /* Zaokrąglone rogi */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+	transition: border-color 0.3s, box-shadow 0.3s ease;
 	font-size: 13px;
 }
 
@@ -497,14 +550,16 @@ footer {
 .form-group textarea:focus {
 	outline: none;
 	border-color: #e60000;
+	box-shadow: 0 4px 10px rgba(230, 0, 0, 0.2); /* Efekt po kliknięciu */
 }
 
 .message {
 	padding: 10px 15px;
-	margin-bottom: 15px;
+	margin: 20px 0; /* Większe odstępy */
 	border-radius: 5px;
 	font-size: 14px;
 	text-align: center;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Delikatny cień */
 }
 
 .message.success {
@@ -991,7 +1046,7 @@ h2 {
 		width: 80%;
 		height: 100vh;
 		background-color: rgba(0, 0, 0, 0.95);
-		transition: right 0.3s ease;
+		transition: right 0.5s ease; /* Płynne rozwijanie menu */
 		z-index: 1000;
 	}
 
@@ -1276,16 +1331,17 @@ h2 {
 	width: 100%;
 	padding: 12px 15px;
 	border: 1px solid #ddd;
-	border-radius: 5px;
+	border-radius: 8px; /* Zaokrąglone rogi */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Delikatny cień */
 	font-size: 14px;
 	transition: all 0.3s ease;
 }
 
-.contact-form input:focus,
+contact-form input:focus,
 .contact-form textarea:focus {
 	border-color: #e60000;
 	outline: none;
-	box-shadow: 0 0 0 2px rgba(230, 0, 0, 0.1);
+	box-shadow: 0 4px 10px rgba(230, 0, 0, 0.2); /* Efekt po kliknięciu */
 }
 
 .contact-form textarea {
@@ -1364,17 +1420,6 @@ h2 {
 		padding-bottom: 8px;
 		border-bottom: 2px solid #e60000;
 	}
-}
-
-.footer-link {
-	color: #fff;
-	text-decoration: none;
-	transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-	color: #e60000;
-	text-decoration: underline;
 }
 
 .contact-link {
@@ -1989,4 +2034,41 @@ a[target='_blank'] {
 
 a[target='_blank']:hover {
 	color: #e60000;
+}
+
+.card-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 15px;
+}
+
+.share-counter {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	background: #f5f5f5;
+	padding: 5px 10px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	color: #666;
+	font-size: 14px;
+	border: 1px solid #e0e0e0;
+}
+
+.share-counter:hover {
+	background: #e0e0e0;
+	color: #333;
+	border-color: #ccc;
+}
+
+.share-icon {
+	font-size: 16px;
+	line-height: 1;
+}
+
+.share-count {
+	font-weight: 500;
+	line-height: 1;
 }

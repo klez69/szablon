@@ -37,6 +37,10 @@ logVisit();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v18.0" nonce="YOUR_NONCE_VALUE"></script>
 </head>
 <body>
     <header>
@@ -81,6 +85,17 @@ logVisit();
             <h2>Piszą o nas</h2>
         </div>
         <div class="services-cards">
+
+        <div class="service-card-horizontal">
+                <div class="card-image">
+                    <img src="images/Ford-Edge-2-0-EcoBoost-LPG.webp" alt="BRC Maestro w Fordzie Edge (2019) – 2.0 242 KM (R9CB)">
+                </div>
+                <div class="card-content">
+                    <h3>BRC Maestro w Fordzie Edge (2019) – 2.0 242 KM (R9CB)</h3>
+                    <p>Druga generacja Forda Edge została po raz pierwszy zaprezentowana w 2014 r. W odróżnieniu od pierwszej generacji, samochód powstał jako model globalny w ramach strategii One Ford.</p>
+                    <a href="https://gazeo.pl/informacje/samochody/osobowe/BRC-Maestro-w-Fordzie-Edge-2019-2.0-242-KM-R9CB,artykul,11321.html" class="btn">Więcej na gazeo.pl</a>
+                </div>
+            </div>
         
         <div class="service-card-horizontal">
                 <div class="card-image">
@@ -121,9 +136,7 @@ logVisit();
                 </div>
                 <div class="card-content">
                     <h3>BRC Sequent Maestro po 12 000 km</h3>
-                    <p>BRC Sequent Maestro to instalacja gazowa dedykowana do silników z bezpośrednim wtryskiem benzyny, także z wtryskiem dualnym, który wykorzystuje bezpośredni i pośredni układ wtrysku benzyny. Jak system BRC Sequent Maestro sprawuje się w samochodzie z takim właśnie silnikiem? ......
-
-</p>
+                    <p>BRC Sequent Maestro to instalacja gazowa dedykowana do silników z bezpośrednim wtryskiem benzyny, także z wtryskiem dualnym, który wykorzystuje bezpośredni i pośredni układ wtrysku benzyny. Jak system BRC Sequent Maestro sprawuje się w samochodzie z takim właśnie silnikiem? ......</p>
                     <a href="https://gazeo.pl/poradniki/eksploatacja/BRC-Sequent-Maestro-po-12-000-km,artykul,11100.html" class="btn">Więcej na gazeo.pl</a>
                 </div>
             </div>

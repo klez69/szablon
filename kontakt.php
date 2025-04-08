@@ -139,6 +139,7 @@ if (isset($_POST['newsletter_submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    <script src="map.js"></script>
     <style>
         .map-section {
             padding: 40px 0;
@@ -258,6 +259,7 @@ if (isset($_POST['newsletter_submit'])) {
             window.open(url, '_blank');
         }
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
@@ -375,16 +377,16 @@ if (isset($_POST['newsletter_submit'])) {
                 </div>
                 <div class="route-planner">
                     <h3>Zaplanuj trasę do nas</h3>
-                    <form id="routeForm" class="route-form" onsubmit="calculateRoute(event)">
+                    <form id="routeForm" class="route-form" onsubmit="calculateRoute(event)" aria-label="Formularz planowania trasy">
                         <div class="form-group">
                             <label for="start">Twój adres startowy:</label>
-                            <input type="text" id="start" name="start" required placeholder="Wpisz swój adres">
+                            <input type="text" id="start" name="start" required placeholder="Wpisz swój adres" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="end">Adres docelowy:</label>
-                            <input type="text" id="end" name="end" value="ul. Dojazd 1, 33-100 Tarnów" readonly>
+                            <input type="text" id="end" name="end" value="ul. Dojazd 1, 33-100 Tarnów" readonly aria-readonly="true">
                         </div>
-                        <button type="submit" class="btn">Wyznacz trasę</button>
+                        <button type="submit" class="btn" aria-label="Wyznacz trasę">Wyznacz trasę</button>
                     </form>
                 </div>
             </div>

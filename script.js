@@ -6,13 +6,16 @@ $(document).ready(function () {
 			e.preventDefault()
 
 			const hash = this.hash
+			const target = $(hash)
 
-			$('html, body').animate(
-				{
-					scrollTop: $(hash).offset().top - 100,
-				},
-				800
-			)
+			if (target.length) {
+				$('html, body').animate(
+					{
+						scrollTop: target.offset().top - 100,
+					},
+					800
+				)
+			}
 		}
 	})
 
@@ -38,45 +41,57 @@ $(document).ready(function () {
 document.addEventListener('DOMContentLoaded', function () {
 	const menuToggle = document.querySelector('.menu-toggle')
 	const nav = document.querySelector('nav')
+	const navLinks = document.querySelectorAll('nav ul li a')
 
-	menuToggle.addEventListener('click', function () {
-		this.classList.toggle('active')
-		nav.classList.toggle('active')
-	})
-
-	// Zamykanie menu po kliknięciu w link
-	document.querySelectorAll('nav ul li a').forEach(link => {
-		link.addEventListener('click', function () {
-			menuToggle.classList.remove('active')
-			nav.classList.remove('active')
+	if (menuToggle && nav) {
+		menuToggle.addEventListener('click', function () {
+			this.classList.toggle('active')
+			nav.classList.toggle('active')
 		})
-	})
 
-	// Zamykanie menu po kliknięciu poza menu
-	document.addEventListener('click', function (e) {
-		if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
-			menuToggle.classList.remove('active')
-			nav.classList.remove('active')
+		// Zamykanie menu po kliknięciu w link
+		if (navLinks.length > 0) {
+			navLinks.forEach(link => {
+				link.addEventListener('click', function () {
+					menuToggle.classList.remove('active')
+					nav.classList.remove('active')
+				})
+			})
 		}
-	})
+
+		// Zamykanie menu po kliknięciu poza menu
+		document.addEventListener('click', function (e) {
+			if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
+				menuToggle.classList.remove('active')
+				nav.classList.remove('active')
+			}
+		})
+	}
 })
 
 // Gallery modal functionality
 document.addEventListener('DOMContentLoaded', function () {
-	const modal = document.getElementById('imageModal')
+	const modal = document.getElementById('galleryModal')
 	const modalImg = document.getElementById('modalImage')
 	const closeBtn = document.querySelector('.modal-close')
 	const galleryItems = document.querySelectorAll('.gallery-item')
 
+	// Jeśli elementy nie istnieją, zakończ funkcję
+	if (!modal || !modalImg || !closeBtn) {
+		console.log('Elementy galerii nie istnieją - pomijam inicjalizację')
+		return
+	}
+
 	// Open modal when clicking on gallery item
-	galleryItems.forEach(item => {
-		item.addEventListener('click', function () {
-			const imgSrc = this.querySelector('img').src
-			modalImg.src = imgSrc
-			modal.classList.add('active')
-			document.body.style.overflow = 'hidden'
+	if (galleryItems && galleryItems.length > 0) {
+		galleryItems.forEach(item => {
+			item.addEventListener('click', function () {
+				const imgSrc = this.querySelector('img').src
+				modalImg.src = imgSrc
+				modal.style.display = 'block'
+			})
 		})
-	})
+	}
 
 	// Close modal when clicking close button
 	closeBtn.addEventListener('click', function () {
@@ -105,34 +120,42 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
 	const wojewodztwoButtons = document.querySelectorAll('.wojewodztwo-btn')
 
-	wojewodztwoButtons.forEach(button => {
-		button.addEventListener('click', function () {
-			const targetId = this.getAttribute('data-target')
-			const targetSection = document.getElementById(targetId)
+	if (wojewodztwoButtons.length > 0) {
+		wojewodztwoButtons.forEach(button => {
+			button.addEventListener('click', function () {
+				const targetId = this.getAttribute('data-target')
+				const targetSection = document.getElementById(targetId)
 
-			if (targetSection) {
-				// Płynne przewijanie do sekcji
-				targetSection.scrollIntoView({
-					behavior: 'smooth',
-					block: 'start',
-				})
+				if (targetSection) {
+					// Płynne przewijanie do sekcji
+					targetSection.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start',
+					})
 
-				// Dodanie efektu podświetlenia sekcji
-				targetSection.style.transition = 'background-color 0.3s ease'
-				targetSection.style.backgroundColor = 'rgba(230, 0, 0, 0.1)'
+					// Dodanie efektu podświetlenia sekcji
+					targetSection.style.transition = 'background-color 0.3s ease'
+					targetSection.style.backgroundColor = 'rgba(230, 0, 0, 0.1)'
 
-				// Usunięcie podświetlenia po 1.5 sekundy
-				setTimeout(() => {
-					targetSection.style.backgroundColor = ''
-				}, 1500)
-			}
+					// Usunięcie podświetlenia po 1.5 sekundy
+					setTimeout(() => {
+						targetSection.style.backgroundColor = ''
+					}, 1500)
+				}
+			})
 		})
-	})
+	}
 })
 
 // Obsługa przycisku powrotu do góry
 document.addEventListener('DOMContentLoaded', function () {
 	const backToTopButton = document.querySelector('.back-to-top')
+
+	// Jeśli przycisk nie istnieje, zakończ funkcję
+	if (!backToTopButton) {
+		console.log('Przycisk powrotu do góry nie istnieje - pomijam inicjalizację')
+		return
+	}
 
 	// Funkcja sprawdzająca pozycję przewijania
 	function toggleBackToTop() {
@@ -156,4 +179,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Sprawdzenie początkowej pozycji
 	toggleBackToTop()
+})
+
+// Share counter functionality
+document.addEventListener('DOMContentLoaded', function () {
+	const shareCounters = document.querySelectorAll('.share-counter')
+
+	shareCounters.forEach(counter => {
+		const countElement = counter.querySelector('.share-count')
+		const articleUrl = counter.closest('.card-content').querySelector('a').href
+
+		// Wczytaj zapisany licznik z localStorage
+		let count = localStorage.getItem(`share_${articleUrl}`) || 0
+		countElement.textContent = count
+
+		// Obsługa kliknięcia w licznik
+		counter.addEventListener('click', function () {
+			count++
+			countElement.textContent = count
+			localStorage.setItem(`share_${articleUrl}`, count)
+		})
+	})
+})
+
+// Newsletter email validation
+document.querySelector('.newsletter-form input[name="newsletter_email"]').addEventListener('input', function () {
+	const email = this.value
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+	if (!emailRegex.test(email)) {
+		this.style.borderColor = 'red'
+	} else {
+		this.style.borderColor = 'green'
+	}
 })

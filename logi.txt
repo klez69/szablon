@@ -1,3 +1,10 @@
+# Logi wizyt na stronie BRC Maestro
+# Format: Data | Godzina | IP | Strona | Przeglądarka | System operacyjny
+
+# Przykładowy wpis:
+# 2024-03-20 | 14:30:45 | 192.168.1.1 | o-nas.php | Chrome | Windows 10
+
+# Aktualne logi:
 [2025-04-02 14:32:51] Próba zapisu do newslettera: rojek@czakram.pl
 [2025-04-02 14:32:51] Próba połączenia z bazą danych: host=mysql.ibc.pl, dbname=newsletter1, username=admin5950_brcmaestro
 [2025-04-02 14:32:51] Błąd bazy danych newslettera: SQLSTATE[HY000] [1044] Access denied for user 'admin5950_brcmaestro'@'%' to database 'newsletter1'
