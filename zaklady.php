@@ -853,8 +853,6 @@ logVisit();
     </footer>
     
     <!-- Przycisk powrotu do góry -->
-    <button class="back-to-top" aria-label="Powrót do góry">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <button class="back-to-top" aria-label="Powrót do góry">⬆</button>
 </body>
 </html>

@@ -27,10 +27,11 @@ body {
 /* Header */
 header {
 	background: linear-gradient(135deg, #000000, #1a1a1a);
-	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2); /* Zmniejszony cień */
-	position: sticky; /* Zamiast fixed */
-	top: 0;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+	position: fixed;
+	width: 100%;
 	z-index: 1000;
+	top: 0;
 	height: 60px;
 }
 
@@ -153,16 +154,16 @@ nav ul li a:hover {
 	display: inline-block;
 	background: linear-gradient(135deg, #e60000, #cc0000);
 	color: white;
-	padding: 20px 50px; /* Większe przyciski */
+	padding: 15px 40px;
 	border-radius: 25px;
 	text-decoration: none;
 	font-weight: 500;
-	font-size: 18px; /* Czytelniejszy tekst */
+	font-size: 16px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	transition: all 0.3s;
 	box-shadow: 0 4px 15px rgba(230, 0, 0, 0.3);
-	margin-top: 30px;
+	margin-top: 20px;
 	border: 2px solid transparent;
 }
 
@@ -178,13 +179,6 @@ nav ul li a:hover {
 .hero-button:active {
 	transform: translateY(1px);
 	box-shadow: 0 2px 10px rgba(230, 0, 0, 0.3);
-}
-
-@media (max-width: 768px) {
-	.hero-button {
-		padding: 15px 40px; /* Dopasowanie do mniejszych ekranów */
-		font-size: 16px;
-	}
 }
 
 /* Przycisk w sekcji hero */
@@ -266,7 +260,7 @@ nav ul li a:hover {
 	padding: 30px;
 	text-align: center;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transition: all 0.3s;
 	border-top: 4px solid #e60000;
 	position: relative;
 	overflow: hidden;
@@ -285,8 +279,8 @@ nav ul li a:hover {
 }
 
 .service-card:hover {
-	transform: translateY(-10px); /* Unoszenie karty */
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Większy cień */
+	transform: translateY(-10px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .service-card:hover:before {
@@ -332,7 +326,7 @@ nav ul li a:hover {
 	background: white;
 	border-radius: 8px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	margin-bottom: 100px;
+	margin-bottom: 20px;
 	overflow: hidden;
 	transition: transform 0.3s;
 	width: 100%;
@@ -371,40 +365,6 @@ nav ul li a:hover {
 	min-height: 200px;
 	display: flex;
 	flex-direction: column;
-}
-
-.card-content h3 {
-	font-size: 20px;
-	margin-bottom: 12px;
-	color: #000;
-	text-align: left;
-}
-
-.card-content p {
-	font-size: 14px;
-	line-height: 1.5;
-	color: #666;
-	margin-bottom: 15px;
-	text-align: left;
-	flex-grow: 1;
-}
-
-.card-content .btn {
-	display: inline-block;
-	background-color: #e60000;
-	color: white;
-	padding: 10px 25px;
-	border-radius: 5px;
-	text-decoration: none;
-	font-weight: 500;
-	transition: background-color 0.3s;
-	margin-left: 0;
-	align-self: flex-start;
-	margin-bottom: 30px;
-}
-
-.card-content .btn:hover {
-	background-color: #cc0000;
 }
 
 .facebook-like {
@@ -459,9 +419,7 @@ nav ul li a:hover {
 /* Footer */
 footer {
 	background: linear-gradient(135deg, #000000, #1a1a1a);
-	font-size: 14px; /* Większy tekst */
-	line-height: 1.8; /* Większe odstępy między wierszami */
-	color: #ccc; /* Jaśniejszy tekst */
+	color: white;
 	padding: 60px 0 20px;
 }
 
@@ -505,17 +463,6 @@ footer {
 	transform: scale(1.2);
 }
 
-.footer-link {
-	color: #fff;
-	text-decoration: none;
-	transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-	color: #e60000; /* Podkreślenie linków po najechaniu */
-	text-decoration: underline;
-}
-
 .copyright {
 	text-align: center;
 	padding-top: 20px;
@@ -540,9 +487,8 @@ footer {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #ddd;
-	border-radius: 8px; /* Zaokrąglone rogi */
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Delikatny cień */
-	transition: border-color 0.3s, box-shadow 0.3s ease;
+	border-radius: 4px;
+	transition: border-color 0.3s;
 	font-size: 13px;
 }
 
@@ -550,16 +496,14 @@ footer {
 .form-group textarea:focus {
 	outline: none;
 	border-color: #e60000;
-	box-shadow: 0 4px 10px rgba(230, 0, 0, 0.2); /* Efekt po kliknięciu */
 }
 
 .message {
 	padding: 10px 15px;
-	margin: 20px 0; /* Większe odstępy */
+	margin-bottom: 15px;
 	border-radius: 5px;
 	font-size: 14px;
 	text-align: center;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Delikatny cień */
 }
 
 .message.success {
@@ -1046,7 +990,7 @@ h2 {
 		width: 80%;
 		height: 100vh;
 		background-color: rgba(0, 0, 0, 0.95);
-		transition: right 0.5s ease; /* Płynne rozwijanie menu */
+		transition: right 0.3s ease;
 		z-index: 1000;
 	}
 
@@ -1331,17 +1275,16 @@ h2 {
 	width: 100%;
 	padding: 12px 15px;
 	border: 1px solid #ddd;
-	border-radius: 8px; /* Zaokrąglone rogi */
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+	border-radius: 5px;
 	font-size: 14px;
 	transition: all 0.3s ease;
 }
 
-contact-form input:focus,
+.contact-form input:focus,
 .contact-form textarea:focus {
 	border-color: #e60000;
 	outline: none;
-	box-shadow: 0 4px 10px rgba(230, 0, 0, 0.2); /* Efekt po kliknięciu */
+	box-shadow: 0 0 0 2px rgba(230, 0, 0, 0.1);
 }
 
 .contact-form textarea {
@@ -1420,6 +1363,17 @@ contact-form input:focus,
 		padding-bottom: 8px;
 		border-bottom: 2px solid #e60000;
 	}
+}
+
+.footer-link {
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+	color: #e60000;
+	text-decoration: underline;
 }
 
 .contact-link {
@@ -2044,31 +1998,58 @@ a[target='_blank']:hover {
 }
 
 .share-counter {
+	position: relative;
 	display: flex;
 	align-items: center;
-	gap: 5px;
-	background: #f5f5f5;
-	padding: 5px 10px;
-	border-radius: 20px;
+	margin-top: 10px;
+}
+
+.share-btn {
+	background-color: #4267b2;
+	color: #fff;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 5px;
 	cursor: pointer;
-	transition: all 0.3s ease;
-	color: #666;
 	font-size: 14px;
-	border: 1px solid #e0e0e0;
+	margin-right: 15px;
 }
 
-.share-counter:hover {
-	background: #e0e0e0;
-	color: #333;
-	border-color: #ccc;
-}
-
-.share-icon {
-	font-size: 16px;
-	line-height: 1;
+.share-btn:hover {
+	background-color: #365899;
 }
 
 .share-count {
-	font-weight: 500;
-	line-height: 1;
+	font-size: 14px;
+	color: #333;
+	margin-left: 5px;
+}
+
+/* Button styles */
+.btn {
+	display: inline-block;
+	background: linear-gradient(135deg, #e60000, #cc0000);
+	color: white;
+	padding: 10px 15px; /* Zmieniono padding, aby dopasować do przycisku udostępniania */
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 14px;
+	transition: all 0.3s ease;
+	margin-top: 15px;
+	border: none;
+	width: 165px; /* Dodano stałą szerokość, taką jak przycisk udostępniania */
+	text-align: center; /* Wycentrowanie tekstu w przycisku */
+}
+
+.btn:hover {
+	background: linear-gradient(135deg, #cc0000, #e60000);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(230, 0, 0, 0.3);
+	color: white;
+	text-decoration: none;
+}
+
+.btn:active {
+	transform: translateY(1px);
+	box-shadow: 0 2px 8px rgba(230, 0, 0, 0.2);
 }

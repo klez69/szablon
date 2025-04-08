@@ -202,6 +202,42 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 })
 
+// Share button functionality
+document.addEventListener('DOMContentLoaded', function () {
+	const shareButtons = document.querySelectorAll('.share-btn')
+
+	shareButtons.forEach(button => {
+		button.addEventListener('click', function () {
+			const url = this.getAttribute('data-url')
+			const shareCountElement = this.nextElementSibling
+
+			// Otwórz okno udostępniania na Facebooku
+			window.open(
+				`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+				'facebook-share-dialog',
+				'width=800,height=600'
+			)
+
+			 // Pobierz aktualny licznik z localStorage
+			let count = parseInt(localStorage.getItem(`share_${url}`)) || 0
+
+			// Zwiększ licznik i zaktualizuj w localStorage
+			count++
+			localStorage.setItem(`share_${url}`, count)
+
+			// Zaktualizuj licznik w interfejsie
+			shareCountElement.textContent = `${count} udostępnień`
+		})
+
+		// Wczytaj zapisany licznik z localStorage przy ładowaniu strony
+		const url = button.getAttribute('data-url')
+		const savedCount = localStorage.getItem(`share_${url}`)
+		if (savedCount) {
+			button.nextElementSibling.textContent = `${savedCount} udostępnień`
+		}
+	})
+})
+
 // Newsletter email validation
 document.querySelector('.newsletter-form input[name="newsletter_email"]').addEventListener('input', function () {
 	const email = this.value
