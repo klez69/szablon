@@ -1,21 +1,24 @@
 <?php
 require_once 'dbt.php';
 
-// Funkcja do zapisywania logów
-function writeLog($message) {
-    $logFile = __DIR__ . '/logs/visitors.log';
-    $timestamp = date('Y-m-d H:i:s');
-    
-    // Create logs directory if it doesn't exist
-    if (!file_exists(dirname($logFile))) {
-        mkdir(dirname($logFile), 0777, true);
+// Check if function doesn't already exist before declaring
+if (!function_exists('writeLog')) {
+    // Funkcja do zapisywania logów
+    function writeLog($message) {
+        $logFile = __DIR__ . '/logs/visitors.log';
+        $timestamp = date('Y-m-d H:i:s');
+        
+        // Create logs directory if it doesn't exist
+        if (!file_exists(dirname($logFile))) {
+            mkdir(dirname($logFile), 0777, true);
+        }
+        
+        // Format the log message
+        $logMessage = "[$timestamp] $message\n";
+        
+        // Append to log file
+        file_put_contents($logFile, $logMessage, FILE_APPEND);
     }
-    
-    // Format the log message
-    $logMessage = "[$timestamp] $message\n";
-    
-    // Append to log file
-    file_put_contents($logFile, $logMessage, FILE_APPEND);
 }
 
 // Inicjalizacja połączenia z bazą danych
