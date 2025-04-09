@@ -1,6 +1,23 @@
 <?php
 require_once 'dbt.php';
 
+// Funkcja do zapisywania logów
+function writeLog($message) {
+    $logFile = __DIR__ . '/logs/visitors.log';
+    $timestamp = date('Y-m-d H:i:s');
+    
+    // Create logs directory if it doesn't exist
+    if (!file_exists(dirname($logFile))) {
+        mkdir(dirname($logFile), 0777, true);
+    }
+    
+    // Format the log message
+    $logMessage = "[$timestamp] $message\n";
+    
+    // Append to log file
+    file_put_contents($logFile, $logMessage, FILE_APPEND);
+}
+
 // Inicjalizacja połączenia z bazą danych
 try {
     $db = new PDO("mysql:host=$host;dbname=baza5950_brcmaestro", $username, $password);
@@ -30,6 +47,18 @@ function logVisit() {
     try {
         $ip = $_SERVER['REMOTE_ADDR'];
         $page = $_SERVER['REQUEST_URI'];
+        $userAgent = $_SERVER['HTTP_USER_AGENT'];
+        $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'Direct visit';
+        
+        $message = sprintf(
+            "IP: %s, Page: %s, UserAgent: %s, Referer: %s",
+            $ip,
+            $page,
+            $userAgent,
+            $referer
+        );
+        
+        writeLog($message);
         
         // Sprawdź, czy w ciągu ostatniej minuty nie było już odwiedzin z tego IP
         $stmt = $db->prepare("
@@ -233,4 +262,4 @@ foreach ($pageStats as $stat) {
     $pageNames[] = $stat['page_name'];
     $visitCounts[] = $stat['visit_count'];
 }
-?> 
+?>
