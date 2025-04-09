@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				'width=800,height=600'
 			)
 
-			 // Pobierz aktualny licznik z localStorage
+			// Pobierz aktualny licznik z localStorage
 			let count = parseInt(localStorage.getItem(`share_${url}`)) || 0
 
 			// Zwiększ licznik i zaktualizuj w localStorage
@@ -247,4 +247,33 @@ document.querySelector('.newsletter-form input[name="newsletter_email"]').addEve
 	} else {
 		this.style.borderColor = 'green'
 	}
+})
+
+// FAQ functionality
+document.addEventListener('DOMContentLoaded', function () {
+	const faqQuestions = document.querySelectorAll('.faq-question')
+
+	faqQuestions.forEach(question => {
+		question.addEventListener('click', function () {
+			const faqItem = this.parentElement
+			const answer = faqItem.querySelector('.faq-answer')
+
+			// Zamknij wszystkie inne odpowiedzi
+			document.querySelectorAll('.faq-item').forEach(item => {
+				if (item !== faqItem) {
+					item.classList.remove('active')
+					const otherAnswer = item.querySelector('.faq-answer')
+					otherAnswer.style.maxHeight = null
+				}
+			})
+
+			// Przełącz aktywną odpowiedź
+			faqItem.classList.toggle('active')
+			if (faqItem.classList.contains('active')) {
+				answer.style.maxHeight = answer.scrollHeight + 'px'
+			} else {
+				answer.style.maxHeight = null
+			}
+		})
+	})
 })
