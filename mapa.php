@@ -15,7 +15,7 @@ logVisit();
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    
 
     <style>
         .map-container {
@@ -42,11 +42,12 @@ logVisit();
     </style>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<header>
+
 
     <main>
         <div class="container">
-            <h1 class="text-center my-4">Zakłady Montażowe BRC w Polsce</h1>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="map-container">
@@ -155,15 +156,13 @@ logVisit();
                             
                             
                             
-                            <!-- Dodaj pozostałe województwa -->
+                            
                         </svg>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-    <?php include 'footer.php'; ?>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -191,6 +190,32 @@ logVisit();
                     $(this).css('fill', 'rgb(255, 255, 255)');
                 }
             );
+
+            // Wyrównanie wysokości kolumn
+            function adjustHeight() {
+                var windowHeight = $(window).height();
+                var headerHeight = $('header').outerHeight();
+                var heroHeight = $('.hero').outerHeight();
+                var contentHeight = windowHeight - headerHeight - heroHeight - 40;
+                
+                $('.zaklady-content, .map-container').css('max-height', contentHeight + 'px');
+            }
+            
+            // Wywołaj przy starcie i przy zmianie rozmiaru okna
+            adjustHeight();
+            $(window).resize(adjustHeight);
+            
+            // Płynne przewijanie do sekcji
+            $('.wojewodztwo-btn').click(function() {
+                var target = $(this).data('target');
+                var $targetElement = $('#' + target);
+                
+                if ($targetElement.length) {
+                    $('.zaklady-content').animate({
+                        scrollTop: $targetElement.position().top
+                    }, 1000);
+                }
+            });
         });
     </script>
 </body>

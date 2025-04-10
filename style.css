@@ -2170,49 +2170,132 @@ h2,
 }
 
 @media (max-width: 768px) {
-    .faq-question {
-        font-size: 14px;
-        padding: 15px;
-        line-height: 1.4;
-    }
+	.faq-question {
+		font-size: 14px;
+		padding: 15px;
+		line-height: 1.4;
+	}
 
-    .faq-answer {
-        font-size: 13px;
-        line-height: 1.5;
-        padding: 0 15px;
-    }
+	.faq-answer {
+		font-size: 13px;
+		line-height: 1.5;
+		padding: 0 15px;
+	}
 
-    .faq-answer p {
-        margin-bottom: 10px;
-    }
+	.faq-answer p {
+		margin-bottom: 10px;
+	}
 
-    .faq-icon {
-        font-size: 18px;
-    }
+	.faq-icon {
+		font-size: 18px;
+	}
 
-    .faq-item.active .faq-answer {
-        padding: 0 15px 15px 15px;
-    }
+	.faq-item.active .faq-answer {
+		padding: 0 15px 15px 15px;
+	}
 }
 
 @media (max-width: 480px) {
-    .faq-question {
-        font-size: 13px;
-        padding: 12px;
-        line-height: 1.3;
-    }
+	.faq-question {
+		font-size: 13px;
+		padding: 12px;
+		line-height: 1.3;
+	}
 
-    .faq-answer {
-        font-size: 12px;
-        line-height: 1.4;
-        padding: 0 12px;
-    }
+	.faq-answer {
+		font-size: 12px;
+		line-height: 1.4;
+		padding: 0 12px;
+	}
 
-    .faq-icon {
-        font-size: 16px;
-    }
+	.faq-icon {
+		font-size: 16px;
+	}
 
-    .faq-item.active .faq-answer {
-        padding: 0 12px 12px 12px;
-    }
+	.faq-item.active .faq-answer {
+		padding: 0 12px 12px 12px;
+	}
+}
+
+/* Style dla layoutu 50/50 */
+.container-fluid {
+	width: 100%;
+	padding: 20px;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.col-md-6 {
+	flex: 0 0 50%;
+	max-width: 50%;
+	padding: 15px;
+}
+
+.zaklady-content {
+	height: calc(100vh - 200px);
+	overflow-y: auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+	position: sticky;
+	top: 20px;
+	height: calc(100vh - 200px);
+	padding: 20px;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+	.col-md-6 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.map-container {
+		position: relative;
+		margin-top: 20px;
+		height: 500px;
+	}
+}
+
+/* Style responsywne */
+@media (max-width: 768px) {
+	.col-md-6 {
+		width: 100%;
+	}
+
+	.map-container {
+		position: relative;
+		top: 0;
+		margin-bottom: 20px;
+	}
+}
+
+/* Style dla scrollowania */
+.zaklady-content {
+	max-height: calc(100vh - 200px);
+	overflow-y: auto;
+	-ms-overflow-style: none; /* IE i Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+/* Ukrycie paska przewijania dla Chrome, Safari i Opera */
+.zaklady-content::-webkit-scrollbar {
+	display: none;
+}
+
+/* Style dla mapy */
+.map-container svg {
+	width: 100%;
+	height: auto;
+	max-height: calc(100vh - 250px);
 }
