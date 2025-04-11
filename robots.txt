@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brc-maestro.pl/sitemap.xml

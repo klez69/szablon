@@ -4,17 +4,18 @@ logVisit();
 ?>
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRC Maestro - Zakłady Montażowe | Profesjonalne instalacje LPG i serwis autogaz</title>
-    
+
     <!-- Meta tagi SEO -->
     <meta name="description" content="BRC Maestro - znajdź najbliższy zakład montażowy. Profesjonalne instalacje LPG i serwis autogaz w całej Polsce. Warszawa, Kraków, Rzeszów, Lublin, Świdnica, Mysłowice.">
     <meta name="keywords" content="BRC Maestro, zakłady montażowe, instalacje LPG, montaż LPG, systemy gazowe, oszczędzanie paliwa, instalacje gazowe, samochody na gaz, autogaz, brc gaz, brc instalacje, brc instalacja, brc lpg, brc serwis, lubin lpg, brc warszawa, serwis brc, brc rzeszów, brc kraków, brc mysłowice, auto gaz świdnica, instalacje brc opinie, brc czakram, instalacja lpg brc, eliasz gaz, brc lublin">
     <meta name="author" content="BRC Maestro">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brc-maestro.pl/zaklady.php">
@@ -31,13 +32,14 @@ logVisit();
 
     <!-- Favicon -->
     <link href="https://brc-maestro.pl/images/favico.ico" rel="icon" type="image/vnd.microsoft.icon">
-    
+
     <!-- Style i skrypty -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -81,33 +83,63 @@ logVisit();
                 <div class="zaklady-content">
                     <h2>Lista zakładów montażowych</h2>
                     <p>Poniżej znajdziesz listę wszystkich zakładów montażowych BRC Maestro w Polsce. Wybierz najbliższy zakład i skontaktuj się z nim bezpośrednio.</p>
-                    
-                    <!-- Pasek z województwami -->
-                    <div class="wojewodztwa-bar">
-                        <button class="wojewodztwo-btn" data-target="dolnoslaskie">Dolnośląskie</button>
-                        <button class="wojewodztwo-btn" data-target="kujawsko-pomorskie">Kujawsko-pomorskie</button>
-                        <button class="wojewodztwo-btn" data-target="lubelskie">Lubelskie</button>
-                        <button class="wojewodztwo-btn" data-target="lubuskie">Lubuskie</button>
-                        <button class="wojewodztwo-btn" data-target="lodzkie">Łódzkie</button>
-                        <button class="wojewodztwo-btn" data-target="malopolskie">Małopolskie</button>
-                        <button class="wojewodztwo-btn" data-target="mazowieckie">Mazowieckie</button>
-                        <button class="wojewodztwo-btn" data-target="opolskie">Opolskie</button>
-                        <button class="wojewodztwo-btn" data-target="podkarpackie">Podkarpackie</button>
-                        <button class="wojewodztwo-btn" data-target="podlaskie">Podlaskie</button>
-                        <button class="wojewodztwo-btn" data-target="pomorskie">Pomorskie</button>
-                        <button class="wojewodztwo-btn" data-target="slaskie">Śląskie</button>
-                        <button class="wojewodztwo-btn" data-target="swietokrzyskie">Świętokrzyskie</button>
-                        <button class="wojewodztwo-btn" data-target="warminsko-mazurskie">Warmińsko-mazurskie</button>
-                        <button class="wojewodztwo-btn" data-target="wielkopolskie">Wielkopolskie</button>
-                        <button class="wojewodztwo-btn" data-target="zachodniopomorskie">Zachodniopomorskie</button>
+
+                    <div class="province-buttons">
+                        <button class="province-button" data-province="dolnoslaskie">
+                            <span class="province-name">Dolnośląskie</span>
+                        </button>
+                        <button class="province-button" data-province="kujawskopomorskie">
+                            <span class="province-name">Kujawsko-Pomorskie</span>
+                        </button>
+                        <button class="province-button" data-province="lubelskie">
+                            <span class="province-name">Lubelskie</span>
+                        </button>
+                        <button class="province-button" data-province="lubuskie">
+                            <span class="province-name">Lubuskie</span>
+                        </button>
+                        <button class="province-button" data-province="lodzkie">
+                            <span class="province-name">Łódzkie</span>
+                        </button>
+                        <button class="province-button" data-province="malopolskie">
+                            <span class="province-name">Małopolskie</span>
+                        </button>
+                        <button class="province-button" data-province="mazowieckie">
+                            <span class="province-name">Mazowieckie</span>
+                        </button>
+                        <button class="province-button" data-province="opolskie">
+                            <span class="province-name">Opolskie</span>
+                        </button>
+                        <button class="province-button" data-province="podkarpackie">
+                            <span class="province-name">Podkarpackie</span>
+                        </button>
+                        <button class="province-button" data-province="podlaskie">
+                            <span class="province-name">Podlaskie</span>
+                        </button>
+                        <button class="province-button" data-province="pomorskie">
+                            <span class="province-name">Pomorskie</span>
+                        </button>
+                        <button class="province-button" data-province="slaskie">
+                            <span class="province-name">Śląskie</span>
+                        </button>
+                        <button class="province-button" data-province="swietokrzyskie">
+                            <span class="province-name">Świętokrzyskie</span>
+                        </button>
+                        <button class="province-button" data-province="warminskomazurskie">
+                            <span class="province-name">Warmińsko-Mazurskie</span>
+                        </button>
+                        <button class="province-button" data-province="wielkopolskie">
+                            <span class="province-name">Wielkopolskie</span>
+                        </button>
+                        <button class="province-button" data-province="zachodniopomorskie">
+                            <span class="province-name">Zachodniopomorskie</span>
+                        </button>
                     </div>
-                    
+
                     <!-- Dolnośląskie -->
-                    <div class="zaklady-section" id="dolnoslaskie">
+                    <div id="dolnoslaskie" class="zaklady-section">
                         <h3>Dolnośląskie</h3>
                         <div class="zaklady-selector">
                             <div class="zaklady-header">
-                               
                             </div>
                         </div>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie dolnośląskim">
@@ -179,7 +211,7 @@ logVisit();
                     </div>
 
                     <!-- Kujawsko-pomorskie -->
-                    <div class="zaklady-section" id="kujawsko-pomorskie">
+                    <div id="kujawsko-pomorskie" class="zaklady-section">
                         <h3>Kujawsko-pomorskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie kujawsko-pomorskim">
                             <thead>
@@ -244,7 +276,7 @@ logVisit();
                     </div>
 
                     <!-- Lubelskie -->
-                    <div class="zaklady-section" id="lubelskie">
+                    <div id="lubelskie" class="zaklady-section">
                         <h3>Lubelskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie lubelskim">
                             <thead>
@@ -297,7 +329,7 @@ logVisit();
                     </div>
 
                     <!-- Lubuskie -->
-                    <div class="zaklady-section" id="lubuskie" aria-label="Zakłady montażowe w województwie lubuskim">
+                    <div id="lubuskie" class="zaklady-section">
                         <h3>Lubuskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie lubuskim">
                             <thead>
@@ -326,7 +358,7 @@ logVisit();
                     </div>
 
                     <!-- Łódzkie -->
-                    <div class="zaklady-section" id="lodzkie" aria-label="Zakłady montażowe w województwie łódzkim">
+                    <div id="lodzkie" class="zaklady-section">
                         <h3>Łódzkie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie łódzkim">
                             <thead>
@@ -385,7 +417,7 @@ logVisit();
                     </div>
 
                     <!-- Małopolskie -->
-                    <div class="zaklady-section" id="malopolskie" aria-label="Zakłady montażowe w województwie małopolskim">
+                    <div id="malopolskie" class="zaklady-section">
                         <h3>Małopolskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie małopolskim">
                             <thead>
@@ -438,7 +470,7 @@ logVisit();
                     </div>
 
                     <!-- Mazowieckie -->
-                    <div class="zaklady-section" id="mazowieckie" aria-label="Zakłady montażowe w województwie mazowieckim">
+                    <div id="mazowieckie" class="zaklady-section">
                         <h3>Mazowieckie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie mazowieckim">
                             <thead>
@@ -497,7 +529,7 @@ logVisit();
                     </div>
 
                     <!-- Opolskie -->
-                    <div class="zaklady-section" id="opolskie" aria-label="Zakłady montażowe w województwie opolskim">
+                    <div id="opolskie" class="zaklady-section">
                         <h3>Opolskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie opolskim">
                             <thead>
@@ -520,7 +552,7 @@ logVisit();
                     </div>
 
                     <!-- Podkarpackie -->
-                    <div class="zaklady-section" id="podkarpackie" aria-label="Zakłady montażowe w województwie podkarpackim">
+                    <div id="podkarpackie" class="zaklady-section">
                         <h3>Podkarpackie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie podkarpackim">
                             <thead>
@@ -542,14 +574,14 @@ logVisit();
                                     <td data-label="Nazwa Zakładu"><strong>FIRMA HANDLOWO-USŁUGOWA "FLOKS" PIOTR MUNIA</strong></td>
                                     <td data-label="Adres">ul. gen. Józefa Bema 13B, Krosno</td>
                                     <td data-label="Telefon">605 573 047</td>
-                                    <td data-label="Email"><a href="mailto:biuro@autogaz-krosno.pl" aria-label="Wyślij email do FIRMA HANDLOWO-USŁUGOWA "FLOKS" PIOTR MUNIA">biuro@autogaz-krosno.pl</a></td>
+                                    <td data-label="Email"><a href="mailto:biuro@autogaz-krosno.pl" aria-label="Wyślij email do FIRMA HANDLOWO-USŁUGOWA " FLOKS" PIOTR MUNIA">biuro@autogaz-krosno.pl</a></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <!-- Podlaskie -->
-                    <div class="zaklady-section" id="podlaskie" aria-label="Zakłady montażowe w województwie podlaskim">
+                    <section id="podlaskie" class="zaklady-section">
                         <h3>Podlaskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie podlaskim">
                             <thead>
@@ -575,10 +607,10 @@ logVisit();
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </section>
 
                     <!-- Pomorskie -->
-                    <div class="zaklady-section" id="pomorskie" aria-label="Zakłady montażowe w województwie pomorskim">
+                    <section id="pomorskie" class="zaklady-section">
                         <h3>Pomorskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie pomorskim">
                             <thead>
@@ -646,10 +678,10 @@ logVisit();
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </section>
 
                     <!-- Śląskie -->
-                    <div class="zaklady-section" id="slaskie" aria-label="Zakłady montażowe w województwie śląskim">
+                    <section id="slaskie" class="zaklady-section">
                         <h3>Śląskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie śląskim">
                             <thead>
@@ -723,10 +755,10 @@ logVisit();
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </section>
 
                     <!-- Wielkopolskie -->
-                    <div class="zaklady-section" id="wielkopolskie" aria-label="Zakłady montażowe w województwie wielkopolskim">
+                    <section id="wielkopolskie" class="zaklady-section">
                         <h3>Wielkopolskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie wielkopolskim">
                             <thead>
@@ -782,10 +814,10 @@ logVisit();
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </section>
 
                     <!-- Zachodniopomorskie -->
-                    <div class="zaklady-section" id="zachodniopomorskie" aria-label="Zakłady montażowe w województwie zachodniopomorskim">
+                    <section id="zachodniopomorskie" class="zaklady-section">
                         <h3>Zachodniopomorskie</h3>
                         <table class="zaklady-table" role="grid" aria-label="Lista zakładów montażowych w województwie zachodniopomorskim">
                             <thead>
@@ -817,7 +849,7 @@ logVisit();
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </section>
@@ -829,20 +861,20 @@ logVisit();
                 <div class="footer-column">
                     <h4>CZAKRAM SP. Z O.O.</h4>
                     <p>ul. Dojazd 1<br>
-                    33-100, Tarnów<br>
-                    Polska</p>
+                        33-100, Tarnów<br>
+                        Polska</p>
                 </div>
                 <div class="footer-column">
                     <h4>Kontakt</h4>
                     <p>Email: maestro@czakram.pl<br>
-                    Tel: +48 14 646 00 90</p>
+                        Tel: +48 14 646 00 90</p>
                 </div>
                 <div class="footer-column">
                     <h4>Śledź nas</h4>
                     <div class="social-icons">
-                    <a href="https://www.facebook.com/BRCPolska/"><img src="images/facebook.png" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/brcpolska/"><img src="images/instagram.png" alt="instagram"></a>
-                    <a href="https://www.youtube.com/@CzakramBoschCarService"><img src="images/youtube.png" alt="YouTube"></a>
+                        <a href="https://www.facebook.com/BRCPolska/"><img src="images/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/brcpolska/"><img src="images/instagram.png" alt="instagram"></a>
+                        <a href="https://www.youtube.com/@CzakramBoschCarService"><img src="images/youtube.png" alt="YouTube"></a>
                     </div>
                 </div>
             </div>
@@ -851,8 +883,58 @@ logVisit();
             <p>&copy; 2025 BRC Maestro. Wszelkie prawa zastrzeżone.</p>
         </div>
     </footer>
-    
-    <!-- Przycisk powrotu do góry -->
-    <button class="back-to-top" aria-label="Powrót do góry">⬆</button>
+
+    <button class="back-to-top" aria-label="Powrót do listy województw">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.province-button');
+            const sections = document.querySelectorAll('.zaklady-section');
+            const backToTopButton = document.querySelector('.back-to-top');
+            const provinceButtonsSection = document.querySelector('.province-buttons');
+
+            // Obsługa przycisku "Powrót do listy województw"
+            backToTopButton.addEventListener('click', function() {
+                if (provinceButtonsSection) {
+                    provinceButtonsSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+
+            // Obsługa przycisków województw
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const province = this.getAttribute('data-province');
+                    const targetSection = document.getElementById(province);
+
+                    if (targetSection) {
+                        // Usuń klasę active ze wszystkich przycisków
+                        buttons.forEach(btn => btn.classList.remove('active'));
+                        // Dodaj klasę active do klikniętego przycisku
+                        this.classList.add('active');
+
+                        // Płynne przewijanie do sekcji
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+
+                        // Dodaj klasę highlighted do sekcji
+                        sections.forEach(section => section.classList.remove('highlighted'));
+                        targetSection.classList.add('highlighted');
+
+                        // Usuń klasę highlighted po 2 sekundach
+                        setTimeout(() => {
+                            targetSection.classList.remove('highlighted');
+                        }, 2000);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>

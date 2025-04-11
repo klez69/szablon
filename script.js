@@ -118,12 +118,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Obsługa przewijania do sekcji województw
 document.addEventListener('DOMContentLoaded', function () {
-	const wojewodztwoButtons = document.querySelectorAll('.wojewodztwo-btn')
+	const provinceButtons = document.querySelectorAll('.province-button')
 
-	if (wojewodztwoButtons.length > 0) {
-		wojewodztwoButtons.forEach(button => {
+	if (provinceButtons.length > 0) {
+		provinceButtons.forEach(button => {
 			button.addEventListener('click', function () {
-				const targetId = this.getAttribute('data-target')
+				const targetId = this.getAttribute('data-province')
 				const targetSection = document.getElementById(targetId)
 
 				if (targetSection) {
@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Obsługa przycisku powrotu do góry
 document.addEventListener('DOMContentLoaded', function () {
 	const backToTopButton = document.querySelector('.back-to-top')
+	const provinceButtonsSection = document.querySelector('.province-buttons')
 
 	// Jeśli przycisk nie istnieje, zakończ funkcję
 	if (!backToTopButton) {
@@ -168,10 +169,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Obsługa kliknięcia przycisku
 	backToTopButton.addEventListener('click', function () {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		})
+		if (provinceButtonsSection) {
+			provinceButtonsSection.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			})
+		}
 	})
 
 	// Nasłuchiwanie zdarzenia przewijania

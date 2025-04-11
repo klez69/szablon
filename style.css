@@ -792,27 +792,18 @@ h2 {
 
 .gallery-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 30px;
-	padding: 20px 0;
+	grid-template-columns: repeat(3, 1fr); /* Zmiana z 4 na 3 kolumny */
+	gap: 20px;
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .gallery-item {
 	background: #fff;
-	border-radius: 15px;
-	overflow: hidden;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	transition: all 0.3s ease;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	border: 1px solid #e0e0e0;
-}
-
-.gallery-item:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-	border-color: #999999;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	transition: transform 0.3s ease;
 }
 
 .gallery-item img {
@@ -901,6 +892,12 @@ h2 {
 	}
 }
 
+@media (max-width: 992px) {
+	.gallery-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 @media (max-width: 768px) {
 	.gallery-section {
 		padding: 60px 0;
@@ -919,6 +916,12 @@ h2 {
 	.gallery-item-description {
 		font-size: 12px;
 		padding: 8px 15px;
+	}
+}
+
+@media (max-width: 576px) {
+	.gallery-grid {
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -2298,4 +2301,170 @@ h2,
 	width: 100%;
 	height: auto;
 	max-height: calc(100vh - 250px);
+}
+
+/* Style dla tagów obrazów */
+.image-tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag {
+    background: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #666;
+    transition: background-color 0.3s;
+}
+
+.tag:hover {
+    background: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Zakłady Montażowe */
+.province-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    justify-content: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.province-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #e60000;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    text-align: center;
+    flex: 1 1 auto;
+    font-size: 16px;
+}
+
+.province-button:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+.province-button.active {
+    background: #990000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsywność dla przycisków województw */
+@media (max-width: 1200px) {
+    .province-buttons {
+        padding: 12px;
+        gap: 8px;
+    }
+    
+    .province-button {
+        min-width: 130px;
+        padding: 10px 16px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .province-buttons {
+        padding: 10px;
+        gap: 6px;
+    }
+    
+    .province-button {
+        min-width: 120px;
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .province-buttons {
+        padding: 8px;
+        gap: 5px;
+    }
+    
+    .province-button {
+        min-width: 110px;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+.workshops-container {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    scroll-margin-top: 100px;
+}
+
+.zaklady-section {
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.zaklady-section.highlighted {
+    background-color: #fff5f5;
+    border-left: 4px solid #e60000;
+    padding-left: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.zaklady-section h3 {
+    color: #e60000;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #e60000;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top i {
+    font-size: 24px;
 }
